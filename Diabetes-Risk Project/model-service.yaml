@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: diabetes-risk-model
+spec:
+  type: LoadBalancer
+  selector:
+    app: diabetes-risk-model
+  ports:
+  - port: 80
+    targetPort: 9696

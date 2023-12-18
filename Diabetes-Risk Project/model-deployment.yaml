@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: diabetes-risk-model
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: diabetes-risk-model
+  template:
+    metadata:
+      labels:
+        app: diabetes-risk-model
+    spec:
+      containers:
+      - name: diabetes-risk-model
+        image: 638603724695.dkr.ecr.us-east-1.amazonaws.com/diabetes-risk-images:diabetes-test-risk
+        resources:
+          limits:
+            memory: "512Mi"
+            cpu: "1"
+        ports:
+        - containerPort: 9696
+
+
+# diabetes-test:risk ---> initial image name before replacement with the URL
